@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM EVENT 객체</title>
+  <style>
+    #container{
+      width: 300px;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>  
+  
+  <div id="container">  
+    <img src="images/cup-1.png"  alt="cup" id="cup"> <!--상대 주소값 => 출력 파일 위치 바뀌거나 하면 안보임-->
+    <!--클릭한 이미지 파일 : http://127.0.0.1:5500/17/images/cup-1.png == 절대주소-->
+  </div>
+  <script>
+    var cup = document.querySelector("#cup");
+    cup.onclick = function (event){  //ondblclick  => 더블클릭
+        alert("클릭한 이미지 파일 : " + this.src); // ==cup.src  둘다 주소값 나옴
+      }//절대 주소값
+    
+  </script>
+</body>
+</html>

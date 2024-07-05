@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+    img{
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+    .cup{
+      width: 150px;
+      height: 150px;
+      transition-duration: .3s;
+    }
+    .cup.down{
+      transform: rotate(25deg) translateY(-40%);
+    }
+    .cup.up{
+      transform: rotate(-25deg) translateY(-40%);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="images/cup-1.png" alt="cup-1" class="cup">
+  </div>
+  <script>
+    const cup = document.querySelector(".cup");
+
+    function resetup(){
+      document.querySelector(".up").classList.remove('up');
+    }
+    function resetdown(){
+      document.querySelector(".down").classList.remove('down');
+    }
+
+    function cupupdown(event){
+      //좌클릭
+      if(event.button === 0){
+        cup.classList.add('up');
+      }else if (event.button === 2){
+        //우클릭 시
+        cup.classList.add('down');
+      }
+      
+      setTimeout(resetup, 500);
+      setTimeout(resetdown, 500);
+    }
+
+    document.addEventListener('contextmenu', function(event){
+      event.preventDefault();
+    });
+    document.addEventListener("mousedown", cupupdown);
+  </script>
+</body>
+</html>

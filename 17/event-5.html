@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM EVENT 객체</title>
+  <style>
+    #container{
+      width: 300px;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>  
+  
+  <div id="container">  
+    <img src="images/easys-1.jpg"  alt="사람" id="cover"> <!--상대 주소값 => 출력 파일 위치 바뀌거나 하면 안보임-->
+    <!--클릭한 이미지 파일 : http://127.0.0.1:5500/17/images/cup-1.png == 절대주소-->
+  </div>
+  <script>
+    var cover = document.getElementById("cover");
+    cover.addEventListener("mouseover", changePic, false);       //포인터 올리면 changePic실행
+    cover.addEventListener("mouseout", originPic, false);        //포인터 올리면 originPic실행
+                                                  //false는 기본 값으로 설정 되있기 때문에 생략 가능
+    function changePic(){
+      cover.src = "images/easys-2.jpg";
+    }
+    function originPic(){
+      cover.src = "images/easys-1.jpg";
+    }
+    
+  </script>
+</body>
+</html>
